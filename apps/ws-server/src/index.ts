@@ -8,10 +8,10 @@ const server = new WebSocketServer({
 server.on("connection", async (socket) => {
     const res = await prismaClient.user.create({
         data: {
-            username: `PRODUCTION ${Math.random().toString()}`,
-            password: `PRODUCTION ${Math.random().toString()}`,
+            username: Math.random().toString(),
+            password: Math.random().toString(),
         }
     })
 console.log(res)
-    socket.send("Hi there you are connected to the Production server");
+    socket.send("Hi there you are connected to the server");
 })
